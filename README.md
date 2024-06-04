@@ -7,7 +7,7 @@ C++ program to get projects started and going on Linux Enviornment
 - VScode Debugging
 
 ## 🚀 Getting Started
-- ``$ make main`` => Runs main file
+- ``$ make run`` => Runs main file
 - ``$ make test`` => Runs all test cases
 
 ## 🪲 Debugging
