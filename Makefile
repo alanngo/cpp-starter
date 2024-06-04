@@ -2,30 +2,44 @@ all:
 	make test
 	make run
 run:
-	make clean
-	g++ -g main.cpp -Wall -fsanitize=undefined -fsanitize=address -I ./include
+	make compile
 	./a.out
 	make clean
 
+#helpers
 clean:
 	rm -rf a.out
 	rm -rf .vscode
 
+compile:
+	make clean
+	g++ -g main.cpp -Wall -fsanitize=undefined -fsanitize=address -I ./include
+
+compile-tests:
+	make clean
+	g++ -g tests/tests.cpp -Wall -fsanitize=undefined -fsanitize=address -lgtest_main  -lgtest -lpthread -I ./include
 
 # testing related
 test:
-	g++ -g tests/tests.cpp -Wall -fsanitize=undefined -fsanitize=address -lgtest_main  -lgtest -lpthread -I ./include
+	make compile-tests
 	./a.out
 	make clean
 
-testcase:
+testfile:
 	bash ./scripts/testcase.sh
 
 # debug related
-debug-start:
+debug-init:
+	make clean
 	bash ./scripts/debug.sh
+	code .
 
-ENTRY_POINT=tests/tests
 debug:
-	g++ -g $(ENTRY_POINT).cpp -Wall -fsanitize=undefined -fsanitize=address -lgtest_main  -lgtest -lpthread -I ./include
+	make compile
 	gdb a.out
+	make clean
+
+debug-tests:
+	make compile-tests
+	gdb a.out
+	make clean
