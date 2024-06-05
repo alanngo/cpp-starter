@@ -1,3 +1,6 @@
+# fetch the library
+sudo apt-get install libgtest-dev
+
 # mark current workspace directory
 PROJ_DIR=$PWD
 

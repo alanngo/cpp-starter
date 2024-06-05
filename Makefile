@@ -19,12 +19,16 @@ compile-tests:
 	make clean
 	g++ -g tests/tests.cpp -Wall -fsanitize=undefined -fsanitize=address -lgtest_main  -lgtest -lpthread -I ./include
 
+
 # testing related
 test:
 	make compile-tests
 	./a.out
 	make clean
 
+setup-tests:
+	bash ./scripts/install_gtest.sh
+	
 testfile:
 	bash ./scripts/testcase.sh
 

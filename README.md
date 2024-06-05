@@ -33,7 +33,13 @@ Hello world
 
 ### Setting Up GTest
 
+#### Automatically
+Run this command: ``make setup-tests`` 
+#### Manually
 ```bash
+# fetch the library
+sudo apt-get install libgtest-dev
+
 # mark current workspace directory
 PROJ_DIR=$PWD
 
