@@ -113,7 +113,7 @@ TEST(SampleTest, PowerOf2True)
 
 ## 🪲 Debugging
 
-### VSCode (only debugs main file)
+### VSCode
 1. ``make debug-init`` => Generates vscode debug files and opens VSCode
 2. VsCode Menu ->``Run`` -> ``Start Debugging``
 
