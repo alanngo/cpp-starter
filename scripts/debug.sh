@@ -3,7 +3,8 @@ function menu() {
     echo "(m)ain"
     echo "(t)est"
 }
-
+RED='\033[0;31m'
+RESET='\033[0m'
 mkdir .vscode
 echo '{
     "version": "0.2.0",
@@ -34,7 +35,9 @@ echo '{
 
 menu
 read -p "Enter a choice: " CHOICE
-if [[ $CHOICE == "m" ]]; then
+
+case $CHOICE in
+"m" | "main")
     echo '{
     "version": "2.0.0",
     "tasks": [
@@ -62,7 +65,8 @@ if [[ $CHOICE == "m" ]]; then
         }
     ]
 }' >'.vscode/tasks.json'
-else
+    ;;
+"t" | "test")
     echo '{
     "version": "2.0.0",
     "tasks": [
@@ -93,4 +97,10 @@ else
         }
     ]
 }' >'.vscode/tasks.json'
-fi
+    ;;
+*)
+    echo -e $RED"Invalid option!"$RESET
+    rm -rf ".vscode"
+    exit 1
+    ;;
+esac

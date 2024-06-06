@@ -16,7 +16,6 @@ sudo apt install make
 
 ## 🚀 Getting Started
 
-### Jumping Right In
 
 Run the main file by using ``make run``
 
@@ -30,6 +29,10 @@ Hello world
 [ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:14] ERROR: error 
 [ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:15] FATAL: fatal 
 ```
+
+
+
+## 🧪 Unit Tests
 
 ### Setting Up GTest
 
@@ -66,8 +69,6 @@ Running main() from ./googletest/src/gtest_main.cc
 [==========] 0 tests from 0 test suites ran. (0 ms total)
 [  PASSED  ] 0 tests.
 ```
-
-## 🧪 Unit Tests
 
 ### Generate a test file
 1. Run ``make testfile``
@@ -115,6 +116,13 @@ TEST(SampleTest, PowerOf2True)
 
 ### VSCode
 1. ``make debug-init`` => Generates vscode debug files and opens VSCode
+    - You will be prompted to choose main or test files
+    ```txt
+    Which program are you debugging?
+    (m)ain
+    (t)est
+    Enter a choice: 
+    ```
 2. VsCode Menu ->``Run`` -> ``Start Debugging``
 
 ### GDB
