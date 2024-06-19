@@ -1,9 +1,6 @@
-
-
-// https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 #ifndef CONSOLE_H
 #define CONSOLE_H
-#include <console.cpp>
+#include "console.cpp"
 
 
 /**

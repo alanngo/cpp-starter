@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <console.hpp>
+#include <objects.hpp>
 using namespace std;
 
 
