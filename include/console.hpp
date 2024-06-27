@@ -1,6 +1,7 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 #include "console.cpp"
+#include "colors.hpp"
 
 
 /**

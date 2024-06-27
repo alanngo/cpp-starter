@@ -5,8 +5,8 @@
 #include <ctime>
 #include <string>
 #include <algorithm>
-#include "colors.hpp"
 #include "chars.hpp"
+#include "colors.hpp"
 
 using namespace std;
 using namespace chrono;
