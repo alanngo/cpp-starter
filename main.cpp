@@ -1,10 +1,8 @@
 
 #include <iostream>
 #include <console.hpp>
-#include <objects.hpp>
+
 using namespace std;
-
-
 int main(int argc, char** argv)
 {
     LOG("Hello world");
