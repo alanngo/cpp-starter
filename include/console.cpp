@@ -8,8 +8,13 @@
 #include "chars.hpp"
 #include "colors.hpp"
 
-using namespace std;
-using namespace chrono;
+using std::ostream;
+using std::stringstream;
+using std::endl;
+using std::string;
+using std::forward;
+
+using namespace std::chrono;
 string getTime()
 {
     // Some computation here

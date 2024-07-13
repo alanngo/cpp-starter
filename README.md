@@ -2,9 +2,16 @@
 C++ program to get projects started and going on Linux Enviornment
 ## ⭐ Features
 
+### Enhanced
+
 - Colored logging
+- Interactive standard input
+- Easy object construction
+
+### Additional
+
 - Unit Testing
-- VScode Debugging
+- Debugging
 
 ## ❗ PreReqs
 
@@ -20,16 +27,8 @@ sudo apt install make
 Run the main file by using ``make run``
 
 #### Your console should look something like this
-```txt
-Hello world 
-[ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:10] TRACE: trace 
-[ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:11] DEBUG: debug 
-[ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:12] INFO: info 
-[ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:13] WARN: warn 
-[ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:14] ERROR: error 
-[ Tue Jun  4 10:10:56 2024 ] --- [main.cpp:15] FATAL: fatal 
-```
 
+![colored logging](./images/logging.png)
 
 
 ## 🧪 Unit Tests
@@ -128,3 +127,45 @@ TEST(SampleTest, PowerOf2True)
 ### GDB
 -  ``make debug`` => Build and runs main file in gdb
 -  ``make debug-tests`` => Build and runs test files in gdb
+
+## ⌨️ Interactive Standard Input (example)
+
+```cpp
+#include <input.hpp>
+#include <console.hpp>
+
+int main(int argc, char **argv)
+{
+    auto name = input<string>("Enter your name: ");
+    auto age = input<int>("Enter your age: ");
+    LOG(name, age);
+    return 0;
+}
+```
+
+## 🧰 Easy Object Construction (example)
+
+### 
+
+```cpp
+#include <input.hpp>
+#include <objects.hpp>
+
+using namespace objects;
+int main(int argc, char **argv)
+{
+    // str is a pointer type => string *
+    auto str = construct<string>("string ptr");
+    
+    /*
+    ...
+    // some code here
+    ...
+    */
+
+    // DON'T FORGET TO CLEANUP
+    destroy(str);
+
+    return 0;
+}
+```

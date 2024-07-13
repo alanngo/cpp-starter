@@ -1,7 +1,8 @@
 #ifndef OBJECTS
 #define OBJECTS
 #include <memory>
-using namespace std;
+
+using std::allocator;
 
 namespace objects
 {

@@ -1,4 +1,5 @@
 all:
+	make update
 	make test
 	make run
 run:
@@ -47,3 +48,8 @@ debug-tests:
 	make compile-tests
 	gdb a.out
 	make clean
+
+# git related
+
+update:
+	git pull https://github.com/alanngo/cpp-starter.git master

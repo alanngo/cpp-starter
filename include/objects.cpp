@@ -1,14 +1,7 @@
 #include "objects.hpp"
 
-template <class E, class... Args>
-E *objects::construct(Args &&...args) { return new E(forward<Args>(args)...); }
-
-template <class E>
-void objects::destroy(E *ptr)
-{
-    delete ptr;
-    ptr = nullptr;
-}
+using std::unique_ptr;
+using std::allocator_traits;
 
 template <class E>
 using Alloc = allocator_traits<allocator<E>>;
@@ -26,5 +19,15 @@ void objects::destroy(allocator<E> &a, E *ptr)
 {
     Alloc<E>::destroy(a, ptr);
     Alloc<E>::deallocate(a, ptr, 1);
+    ptr = nullptr;
+}
+
+template <class E, class... Args>
+E *objects::construct(Args &&...args) { return new E(forward<Args>(args)...); }
+
+template <class E>
+void objects::destroy(E *ptr)
+{
+    delete ptr;
     ptr = nullptr;
 }
