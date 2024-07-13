@@ -1,6 +1,5 @@
 #include "objects.hpp"
 
-using std::unique_ptr;
 using std::allocator_traits;
 
 template <class E>

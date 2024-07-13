@@ -1,7 +1,6 @@
 
 #include <iostream>
 #include <console.hpp>
-using namespace std;
 int main(int argc, char** argv)
 {
     LOG("Hello world");

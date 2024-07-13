@@ -1,5 +1,7 @@
 #include "input.hpp"
 
+using std::unique_ptr;
+
 template <class E, class... Args>
 E input(str prompt, Args &&...args)
 {

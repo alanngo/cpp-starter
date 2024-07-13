@@ -10,6 +10,8 @@
 
 using std::ostream;
 using std::stringstream;
+using std::clog;
+using std::cerr;
 using std::endl;
 using std::string;
 using std::forward;
