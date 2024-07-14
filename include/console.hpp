@@ -3,6 +3,8 @@
 #include "console.cpp"
 #include "colors.hpp"
 
+using std::clog;
+using std::cerr;
 
 /**
  * default logging
