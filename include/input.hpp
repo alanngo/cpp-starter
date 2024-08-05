@@ -24,7 +24,7 @@ E input(str = "", Args &&...);
  * @param args used to construct temp object if necesary
  * @returns value stored
  */
-template <class E = string, class... Args>
+template <class E= string, class... Args>
 E inputline(str = "", Args &&...);
 
 #include "input.cpp"

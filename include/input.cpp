@@ -19,7 +19,7 @@ using std::numeric_limits;
 using std::streamsize;
 using std::getline;
 
-template <class E = string, class... Args>
+template <class E, class... Args>
 E inputline(str prompt, Args &&...args)
 {
     unique_ptr<E> up(construct<E>(forward<Args>(args)...));
