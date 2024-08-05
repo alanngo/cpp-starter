@@ -6,7 +6,7 @@ template <class E>
 using Alloc = allocator_traits<allocator<E>>;
 
 template <class E, class... Args>
-E *objects::construct(allocator<E> &&a, Args &&...args)
+Ptr<E> objects::construct(Tmp<allocator<E>> a, Args &&...args)
 {
     E *ret = Alloc<E>::allocate(a, 1);
     Alloc<E>::construct(a, ret, forward<Args>(args)...);
@@ -14,7 +14,7 @@ E *objects::construct(allocator<E> &&a, Args &&...args)
 }
 
 template <class E>
-void objects::destroy(allocator<E> &&a, E *ptr)
+void objects::destroy(Tmp<allocator<E>> a, E *ptr)
 {
     Alloc<E>::destroy(a, ptr);
     Alloc<E>::deallocate(a, ptr, 1);
@@ -22,10 +22,10 @@ void objects::destroy(allocator<E> &&a, E *ptr)
 }
 
 template <class E, class... Args>
-E *objects::construct(Args &&...args) { return new E(forward<Args>(args)...); }
+Ptr<E> objects::construct(Args &&...args) { return new E(forward<Args>(args)...); }
 
 template <class E>
-void objects::destroy(E *ptr)
+void objects::destroy(Ptr<E> ptr)
 {
     delete ptr;
     ptr = nullptr;

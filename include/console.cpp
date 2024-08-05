@@ -7,6 +7,7 @@
 #include <algorithm>
 #include "chars.hpp"
 #include "colors.hpp"
+#include "types.hpp"
 
 using std::ostream;
 using std::stringstream;
@@ -31,8 +32,8 @@ string getTime()
     return ret + "]";
 }
 
-using str = const string &;
-using num = const int &;
+using str = ReadOnly<string>;
+using num = ReadOnly<int>;
 
 
 template <class... Args>

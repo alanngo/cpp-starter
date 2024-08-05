@@ -1,7 +1,7 @@
 #ifndef OBJECTS
 #define OBJECTS
 #include <memory>
-
+#include "types.hpp"
 using std::allocator;
 
 namespace objects
@@ -14,14 +14,14 @@ namespace objects
      * @returns oconstructed object ptr
      */
     template <class E, class... Args>
-    inline E *construct(Args &&...);
+    inline Ptr<E> construct(Args &&...);
 
     /**
      * destroys and nullifies object using delete
      * @param ptr object to destroy
      */
     template <class E>
-    void destroy(E *);
+    void destroy(Ptr<E>);
 
     // allocator related
     /**
@@ -33,7 +33,7 @@ namespace objects
      * @returns oconstructed object ptr
      */
     template <class E, class... Args>
-    E *construct(allocator<E> &&, Args &&...);
+    Ptr<E> construct(Tmp<allocator<E>> a, Args &&...);
 
     /**
      * destroys and deallocates an object using allocator
@@ -42,45 +42,45 @@ namespace objects
      * @warning MUST USE rval-ref for allocator
      */
     template <class E>
-    void destroy(allocator<E> &&, E *);
+    void destroy(Tmp<allocator<E>> a, E *);
 
     /**
      * simple smart pointer that uses allocators
      * @warning only use if new/delete operators are deleted
      */
     template <class E, class Alloc = allocator<E>>
-    class Ptr
+    class SmartPtr
     {
     public:
         /**
          * constructor
          */
         template <class... Args>
-        explicit Ptr(Args &&...args) : p(construct<E>(Alloc(), forward<Args>(args)...)){};
+        explicit SmartPtr(Args &&...args) : p(construct<E>(Alloc(), forward<Args>(args)...)){};
 
         /**
          * destructor
          */
-        ~Ptr() { destroy(Alloc(), p); }
+        ~SmartPtr() { destroy(Alloc(), p); }
 
         /**
          * derefrence operator
          * @returns ptr value
          */
-        E &operator*() const { return *p; }
+        Ref<E> operator*() const { return *p; }
 
         /**
          * @returns stored ptr
          */
-        E *operator->() const { return p; }
+        Ptr<E> operator->() const { return p; }
 
         // disable copy operations
 
-        Ptr(const Ptr<E> &) = delete;
-        Ptr & operator=(const Ptr<E>&) = delete;
+        SmartPtr(ReadOnly<SmartPtr<E>>) = delete;
+        SmartPtr &operator=(ReadOnly<SmartPtr<E>>) = delete;
 
     private:
-        E *p;
+        Ptr<E> p;
     };
 };
 
