@@ -148,7 +148,6 @@ int main(int argc, char **argv)
 ### 
 
 ```cpp
-#include <input.hpp>
 #include <objects.hpp>
 
 using namespace objects;

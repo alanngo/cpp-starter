@@ -1,31 +1,30 @@
 #include "input.hpp"
 #include <limits>
 
-using std::unique_ptr;
-using objects::construct;
+using objects::Ptr;
 using std::cin;
 using std::cout;
 
-template <class E, class... Args>
+template <class E, class Alloc, class... Args>
 E input(str prompt, Args &&...args)
 {
-    unique_ptr<E> up(construct<E>(forward<Args>(args)...));
+    Ptr<E, Alloc> p(forward<Args>(args)...);
     cout << prompt;
-    cin >> *up;
-    return *up;
+    cin >> *p;
+    return *p;
 }
 
 using std::numeric_limits;
 using std::streamsize;
 using std::getline;
 
-template <class E, class... Args>
+template <class E, class Alloc, class... Args>
 E inputline(str prompt, Args &&...args)
 {
-    unique_ptr<E> up(construct<E>(forward<Args>(args)...));
+    Ptr<E, Alloc> p(forward<Args>(args)...);
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << prompt;
-    getline(cin, *up);
+    getline(cin, *p);
     cin.clear();
-    return *up;
+    return *p;
 }
