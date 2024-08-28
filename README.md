@@ -143,9 +143,9 @@ int main(int argc, char **argv)
 }
 ```
 
-## 🧰 Easy Object Construction (example)
+## 🧰 Easy Object Construction
 
-### 
+### Using Raw Ptr
 
 ```cpp
 #include <objects.hpp>
@@ -164,6 +164,23 @@ int main(int argc, char **argv)
 
     // DON'T FORGET TO CLEANUP
     destroy(str);
+
+    return 0;
+}
+```
+
+### Using Smart Ptr
+```cpp
+#include <objects.hpp>
+
+using namespace objects;
+int main(int argc, char **argv)
+{
+    // objects::SmartPtr will auto destroy
+    SmartPtr<string> ptr("string ptr");
+
+    // do some stuff...
+
 
     return 0;
 }

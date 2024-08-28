@@ -79,6 +79,11 @@ namespace objects
         SmartPtr(ReadOnly<SmartPtr<E>>) = delete;
         SmartPtr &operator=(ReadOnly<SmartPtr<E>>) = delete;
 
+        // disable move operations
+        
+        SmartPtr(Tmp<SmartPtr<E>>) = delete;
+        SmartPtr &operator=(Tmp<SmartPtr<E>>) = delete;
+
     private:
         Ptr<E> p;
     };
