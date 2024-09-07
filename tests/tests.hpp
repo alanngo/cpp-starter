@@ -4,3 +4,5 @@
 
 // Test files are included here
 
+#include "objectsTests.cpp"
+#include "stringsTests.cpp"

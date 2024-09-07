@@ -29,6 +29,15 @@ using Tmp = E &&;
 
 // strings
 
+/**
+ * c-style string
+ */
 using cstring = const char *;
+
+using std::string;
+/**
+ * readonly strings
+ */
+using str = ReadOnly<string>;
 
 #endif

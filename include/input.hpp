@@ -30,5 +30,5 @@ template <class E = string, class Alloc = allocator<E>,
           class... Args>
 E inputline(str = "", Args &&...);
 
-#include "input.cpp"
+#include "impl/input.cpp"
 #endif

@@ -1,6 +1,6 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
-#include "console.cpp"
+#include "impl/console.cpp"
 #include "colors.hpp"
 
 using std::clog;
