@@ -114,7 +114,7 @@ TEST(SampleTest, PowerOf2True)
 ## 🪲 Debugging
 
 ### VSCode
-1. ``make debug-init`` => Generates vscode debug files and opens VSCode
+1. ``make predebug`` => Generates vscode debug files and opens VSCode
     - You will be prompted to choose main or test files
     ```txt
     Which program are you debugging?

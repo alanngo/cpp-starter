@@ -34,10 +34,9 @@ testfile:
 	bash ./scripts/testcase.sh
 
 # debug related
-debug-init:
+predebug:
 	make clean
 	bash ./scripts/debug.sh
-	code .
 
 debug:
 	make compile
@@ -53,3 +52,4 @@ debug-tests:
 
 update:
 	git pull https://github.com/alanngo/cpp-starter.git master
+	code .
