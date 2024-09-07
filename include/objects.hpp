@@ -15,10 +15,10 @@ namespace objects
     /**
      * constructs an object using new
      * @param args varargs for constructing anonymous object
-     * @returns oconstructed object ptr
+     * @returns constructed object ptr
      */
     template <class E, class... Args>
-    inline Ptr<E> construct(Args &&...);
+    inline Ptr<E> construct(Args &&...args) { return new E(forward<Args>(args)...); }
 
     /**
      * destroys and nullifies object using delete
@@ -28,25 +28,40 @@ namespace objects
     void destroy(Ptr<E>);
 
     // allocator related
+
     /**
-     * constructs and allocates an object using allocator
-     * @param E object type
+     * constructs and allocates an object using temp allocator
      * @param a allocator to use
      * @param args varargs for constructing anonymous object
-     * @warning MUST USE rval-ref for allocator
      * @returns oconstructed object ptr
      */
     template <class E, class... Args>
-    Ptr<E> construct(Tmp<allocator<E>> a, Args &&...);
+    Ptr<E> construct(Tmp<allocator<E>>, Args &&...);
+
+    /**
+     * constructs and allocates an object using allocator
+     * @param a allocator to use
+     * @param args varargs for constructing anonymous object
+     * @returns oconstructed object ptr
+     */
+    template <class E, class... Args>
+    inline Ptr<E> construct(Ref<allocator<E>> a, Args &&...args) { return construct<E>(move(a), forward<Args>(args)...); }
+
+    /**
+     * destroys and deallocates an object using temp allocator
+     * @param a allocator to use
+     * @param ptr pointer to kill and nullify
+     */
+    template <class E>
+    void destroy(Tmp<allocator<E>>, E *);
 
     /**
      * destroys and deallocates an object using allocator
-     * @param E object type
      * @param a allocator to use
-     * @warning MUST USE rval-ref for allocator
+     * @param ptr pointer to kill and nullify
      */
     template <class E>
-    void destroy(Tmp<allocator<E>> a, E *);
+    inline void destroy(Ref<allocator<E>> a, E *ptr) { return destroy(move(a), ptr); }
 
     /**
      * simple smart pointer that uses allocators
@@ -84,7 +99,7 @@ namespace objects
         SmartPtr &operator=(ReadOnly<SmartPtr<E>>) = delete;
 
         // disable move operations
-        
+
         SmartPtr(Tmp<SmartPtr<E>>) = delete;
         SmartPtr &operator=(Tmp<SmartPtr<E>>) = delete;
 

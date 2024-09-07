@@ -7,6 +7,7 @@ C++ program to get projects started and going on Linux Enviornment
 - Colored logging
 - Interactive standard input
 - Easy object construction
+- Enhanced String Operations
 
 ### Additional
 
@@ -181,6 +182,60 @@ int main(int argc, char **argv)
 
     // do some stuff...
 
+
+    return 0;
+}
+```
+
+## 🧵 Enhanced String Operations
+
+### Join
+
+```cpp
+#include <strings.hpp>
+#include <console.hpp>
+#include <vector>
+#include <string>
+using namespace std;
+using namespace strings;
+int main(int argc, char **argv)
+{
+    vector<string> v = {"king", "queen", "rook", "bishop", "knight", "pawn"};
+    string chess = join(v, "<>");
+    LOG(chess);
+
+    // "king<>queen<>rook<>bishop<>knight<>pawn"
+
+    return 0;
+}
+```
+
+### Split
+
+```cpp
+#include <strings.hpp>
+#include <console.hpp>
+#include <vector>
+#include <string>
+using namespace std;
+using namespace strings;
+int main(int argc, char **argv)
+{
+    string s = "king<>queen<>rook<>bishop<>knight<>pawn";
+
+    auto result = split(s, "<>");
+
+    for (const string & i: result)
+        LOG(i);
+
+    /**
+     * king
+     * queen
+     * rook
+     * bishop
+     * knight
+     * pawn
+     */
 
     return 0;
 }

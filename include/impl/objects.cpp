@@ -21,9 +21,6 @@ void objects::destroy(Tmp<allocator<E>> a, E *ptr)
     ptr = nullptr;
 }
 
-template <class E, class... Args>
-Ptr<E> objects::construct(Args &&...args) { return new E(forward<Args>(args)...); }
-
 template <class E>
 void objects::destroy(Ptr<E> ptr)
 {
