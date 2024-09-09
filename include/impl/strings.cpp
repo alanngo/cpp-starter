@@ -34,5 +34,17 @@ string strings::join(args strList, str delim)
         ss << elem << (i == strList.size() - 1 ? "" : delim);
         i++;
     }
-    return move(ss.str());
+    return ss.str();
+}
+
+bool strings::equalsIgnoreCase(str a, str b)
+{
+    if (a.length() != b.length())
+        return false;
+    for (size_t i = 0; i < a.length(); i++)
+    {
+        if (tolower(a[i]) != tolower(b[i]))
+            return false;
+    }
+    return true;
 }

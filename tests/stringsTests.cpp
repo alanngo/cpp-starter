@@ -21,3 +21,24 @@ TEST(stringsTest, Join)
     string chess = join({"king", "queen", "rook", "bishop", "knight", "pawn"}, "<>");
     EXPECT_EQ(chess, "king<>queen<>rook<>bishop<>knight<>pawn");
 }
+
+TEST(stringsTest, EqIgnoreCaseTrue)
+{
+    string a = "pizza";
+    string b = "PIZZA";
+    EXPECT_TRUE(equalsIgnoreCase(a, b));
+}
+
+TEST(stringsTest, EqIgnoreCaseFalse)
+{
+    string a = "pizza";
+    string b = "PIXZA";
+    EXPECT_FALSE(equalsIgnoreCase(a, b));
+}
+
+TEST(stringsTest, MathIgnoreCaseFalse)
+{
+    string s = "CHESS";
+    string pattern ="poker|chess";
+    EXPECT_TRUE(matchIgnoreCase(s, pattern));
+}

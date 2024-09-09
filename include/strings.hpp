@@ -14,7 +14,7 @@ using std::vector;
 namespace strings
 {
     using args = const vector<string> &;
-    
+
     /**
      * splits a string based on delimeter
      * @param s base string to split
@@ -30,6 +30,25 @@ namespace strings
      * @returns joined string
      */
     string join(args, str = "");
+
+    /**
+     * case-insensitive comparison
+     * @param a lhs string
+     * @param b rhs string
+     * @return true if lhs and rhs values are equal ignoring case
+     */
+    bool equalsIgnoreCase(str, str);
+
+    using std::regex;
+    using std::regex_constants::icase;
+
+    /**
+     * case-insensitive regex matching
+     * @param s reference string
+     * @param p regex pattern
+     * @return true if match exist 
+     */
+    inline bool matchIgnoreCase(str s, str p) { return regex_match(s, regex(p, icase)); }
 
 }
 #include "impl/strings.cpp"
