@@ -5,9 +5,6 @@
 #include <memory>
 #include "objects.hpp"
 #include "types.hpp"
-using std::string;
-using str = ReadOnly<string>;
-using std::allocator;
 
 /**
  * gets input from keyboard and returns it

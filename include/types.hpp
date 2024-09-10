@@ -28,17 +28,18 @@ template <class E>
 using Tmp = E &&;
 
 // strings
+#include <string>
+using std::string;
+
+/**
+ * readonly strings
+ */
+using str = ReadOnly<string>;
 
 /**
  * c-style string
  */
 using cstring = const char *;
-
-using std::string;
-/**
- * readonly strings
- */
-using str = ReadOnly<string>;
 
 // exceptions
 

@@ -1,11 +1,9 @@
 #ifndef STRINGS
 #define STRINGS
 #include <vector>
-#include <string>
 #include <regex>
 #include "types.hpp"
 
-using std::string;
 using std::vector;
 
 /**
