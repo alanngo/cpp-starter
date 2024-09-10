@@ -40,6 +40,20 @@ using std::string;
  */
 using str = ReadOnly<string>;
 
+// exceptions
 
+using std::exception;
+using std::runtime_error;
+
+/**
+ * catch exception
+ */
+using Exception = ReadOnly<exception>;
+
+
+/**
+ * catch runtime error
+ */
+using RuntimeError = ReadOnly<runtime_error>;
 
 #endif
