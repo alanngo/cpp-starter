@@ -53,7 +53,7 @@ namespace objects
      * @param ptr pointer to kill and nullify
      */
     template <class E>
-    void destroy(Tmp<allocator<E>>, E *);
+    void destroy(Tmp<allocator<E>>, Ptr<E>);
 
     /**
      * destroys and deallocates an object using allocator
@@ -61,7 +61,7 @@ namespace objects
      * @param ptr pointer to kill and nullify
      */
     template <class E>
-    inline void destroy(Ref<allocator<E>> a, E *ptr) { return destroy(move(a), ptr); }
+    inline void destroy(Ref<allocator<E>> a, Ptr<E> ptr) { destroy(move(a), ptr); }
 
     /**
      * simple smart pointer that uses allocators

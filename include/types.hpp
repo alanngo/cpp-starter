@@ -51,10 +51,13 @@ using std::runtime_error;
  */
 using Exception = ReadOnly<exception>;
 
-
 /**
  * catch runtime error
  */
 using RuntimeError = ReadOnly<runtime_error>;
+
+// boolean
+
+using flag = ReadOnly<bool>;
 
 #endif

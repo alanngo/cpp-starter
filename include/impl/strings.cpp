@@ -1,5 +1,4 @@
 #include "strings.hpp"
-#include <sstream>
 vector<string> strings::split(str s, str delim)
 {
     vector<string> ret;
@@ -24,7 +23,6 @@ vector<string> strings::split(str s, str delim)
     return ret;
 }
 
-using std::stringstream;
 string strings::join(args strList, str delim)
 {
     stringstream ss;

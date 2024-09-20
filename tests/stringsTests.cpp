@@ -1,6 +1,7 @@
 
 #include <gtest/gtest.h>
 #include <strings.hpp>
+#include <console.hpp>
 
 using namespace strings;
 
@@ -36,9 +37,21 @@ TEST(stringsTest, EqIgnoreCaseFalse)
     EXPECT_FALSE(equalsIgnoreCase(a, b));
 }
 
-TEST(stringsTest, MathIgnoreCaseFalse)
+TEST(stringsTest, MatchIgnoreCase)
 {
     string s = "CHESS";
     string pattern ="poker|chess";
     EXPECT_TRUE(matchIgnoreCase(s, pattern));
+}
+
+TEST(stringsTest, ToUpper)
+{
+    string s = "Chess";
+    EXPECT_EQ("CHESS", toUppercase(s));
+}
+
+TEST(stringsTest, ToLower)
+{
+    string s = "Chess";
+    EXPECT_EQ("chess", toLowercase(s));
 }
