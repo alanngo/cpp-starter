@@ -15,10 +15,11 @@ namespace objects
     /**
      * constructs an object using new
      * @param args varargs for constructing anonymous object
+     * @throws E must be destructible
      * @returns constructed object ptr
      */
     template <class E, class... Args>
-    inline Ptr<E> construct(Args &&...args) { return new E(forward<Args>(args)...); }
+    Ptr<E> construct(Args &&...args);
 
     /**
      * destroys and nullifies object using delete
@@ -106,6 +107,10 @@ namespace objects
     private:
         Ptr<E> p;
     };
+
+    // exceptions
+
+    
 };
 
 #include "impl/objects.cpp"
