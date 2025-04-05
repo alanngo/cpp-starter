@@ -15,7 +15,6 @@ namespace objects
     /**
      * constructs an object using new
      * @param args varargs for constructing anonymous object
-     * @throws E must be destructible
      * @returns constructed object ptr
      */
     template <class E, class... Args>
