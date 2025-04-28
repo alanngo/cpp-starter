@@ -5,6 +5,7 @@
 using std::allocator;
 using std::forward;
 
+
 /**
  * quick and simple object creation file
  */
@@ -73,6 +74,7 @@ namespace objects
     public:
         /**
          * constructor
+         * @param args arguments to forward in object constructor
          */
         template <class... Args>
         explicit SmartPtr(Args &&...args) : p(construct<E>(Alloc(), forward<Args>(args)...)){};
@@ -93,6 +95,7 @@ namespace objects
          */
         Ptr<E> operator->() const { return p; }
 
+
         // disable copy operations
 
         SmartPtr(ReadOnly<SmartPtr<E>>) = delete;
@@ -107,8 +110,6 @@ namespace objects
         Ptr<E> p;
     };
 
-
-    
 };
 
 #include "impl/objects.cpp"
