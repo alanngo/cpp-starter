@@ -107,7 +107,6 @@ namespace objects
         Ptr<E> p;
     };
 
-    // exceptions
 
     
 };
