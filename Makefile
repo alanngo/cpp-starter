@@ -1,9 +1,14 @@
+std ?= 17
+memory = -fsanitize=undefined -fsanitize=address
+googletest = -lgtest_main -lgtest -lpthread
+default = -Wall -I ./include
+
 all:
 	make update
 	make test
 	make run
-run:
-	make compile
+run: 
+	make compile 
 	./a.out
 	make clean
 
@@ -12,13 +17,13 @@ clean:
 	rm -rf a.out
 	rm -rf .vscode
 
-compile:
+compile: 
 	make clean
-	g++ -g main.cpp -Wall -fsanitize=undefined -fsanitize=address -I ./include
+	g++ -g main.cpp $(default) $(memory) -std=c++$(std)
 
 compile-tests:
 	make clean
-	g++ -g tests/tests.cpp -Wall -fsanitize=undefined -fsanitize=address -lgtest_main  -lgtest -lpthread -I ./include
+	g++ -g tests/tests.cpp $(default) $(memory) $(googletest) -std=c++$(std)
 
 
 # testing related

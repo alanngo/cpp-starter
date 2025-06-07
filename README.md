@@ -25,7 +25,10 @@ sudo apt install make
 ## 🚀 Getting Started
 
 
-Run the main file by using ``make run``
+Run the main file by using ``make run``. You can also set c++ version
+
+- ``make run``: defaults to c++17
+- ``make run std=$CPP_VERSION``: runs at user-specified version
 
 #### Your console should look something like this
 

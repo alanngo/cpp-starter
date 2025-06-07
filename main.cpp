@@ -1,14 +1,14 @@
-
-#include <iostream>
 #include <console.hpp>
-int main(int argc, char** argv)
+#include <input.hpp>
+#include <vector>
+#include <types.hpp>
+#include <objects.hpp>
+using namespace std;
+using namespace objects;
+
+
+int main(int argc, char **argv)
 {
-    LOG("Hello world");
-    TRACE("trace");
-    DEBUG("debug");
-    INFO("info");
-    WARN("warn");
-    ERROR("error");
-    FATAL("fatal");
+    INFO("hello world");
     return 0;
 }
