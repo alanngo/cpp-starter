@@ -1,7 +1,7 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 #include "impl/console.cpp"
-#include "colors.hpp"
+#include "constants/colors.hpp"
 
 using std::clog;
 using std::cerr;

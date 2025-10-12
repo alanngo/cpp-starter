@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 #include "objects.hpp"
-#include "types.hpp"
+#include "constants/types.hpp"
 
 /**
  * gets input from keyboard and returns it
