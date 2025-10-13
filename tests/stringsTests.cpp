@@ -30,10 +30,23 @@ TEST(stringsTest, EqIgnoreCaseTrue)
     EXPECT_TRUE(equalsIgnoreCase(a, b));
 }
 
+TEST(stringsTest, EqIgnoreCaseTrue1)
+{
+    string a = "pizzas";
+    string b = "PIZZAS";
+    EXPECT_TRUE(equalsIgnoreCase(a, b));
+}
+
 TEST(stringsTest, EqIgnoreCaseFalse)
 {
     string a = "pizza";
     string b = "PIXZA";
+    EXPECT_FALSE(equalsIgnoreCase(a, b));
+}
+TEST(stringsTest, EqIgnoreCaseFalse1)
+{
+    string a = "pizzas";
+    string b = "PIXZAS";
     EXPECT_FALSE(equalsIgnoreCase(a, b));
 }
 

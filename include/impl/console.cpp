@@ -15,6 +15,7 @@ using std::stringstream;
 using std::endl;
 using std::string;
 using std::forward;
+using std::remove;
 
 using namespace std::chrono;
 string getTime()
@@ -27,7 +28,7 @@ string getTime()
     stringstream ss;
     ss << ctime(&end_time);
     string ret = "[ " + ss.str();
-    ret.erase(std::remove(ret.begin(), ret.end(), NEWLINE), ret.cend());
+    ret.erase(remove(ret.begin(), ret.end(), NEWLINE), ret.cend());
     ret += SPACE;
     return ret + "]";
 }

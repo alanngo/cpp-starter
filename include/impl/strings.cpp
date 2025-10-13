@@ -39,10 +39,14 @@ bool strings::equalsIgnoreCase(str a, str b)
 {
     if (a.length() != b.length())
         return false;
-    for (size_t i = 0; i < a.length(); i++)
+    size_t i = 0, j= a.length() -1;
+    while (i <= j)
     {
-        if (tolower(a[i]) != tolower(b[i]))
+        if ((tolower(a[i]) != tolower(b[i])) || (tolower(a[j]) != tolower(b[j])))
             return false;
+        
+        i++;
+        j--;
     }
     return true;
 }

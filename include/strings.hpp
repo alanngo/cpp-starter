@@ -4,7 +4,7 @@
 #include <regex>
 #include <sstream>
 
-#include "types.hpp"
+#include "constants/types.hpp"
 
 using std::vector;
 using std::stringstream;
