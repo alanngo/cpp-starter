@@ -13,14 +13,14 @@ struct Equals
      * @param e object to check against
      * @returns true if both classes are equal
      */
-    virtual bool operator==(ReadOnly<E>) = 0;
+    virtual bool operator==(ReadOnly<E>) const = 0;
 
     /**
      * checks if object is NOT equal to another
      * @param e object to check against
      * @returns true if both object are NOT equal
      */
-    virtual bool operator!=(ReadOnly<E> e) { return !(*this == e); }
+    virtual bool operator!=(ReadOnly<E> e) const { return !(*this == e); }
 };
 
 /**
@@ -34,32 +34,32 @@ struct CompareTo : public Equals<E>
      * @param e object to check against
      * @returns true if object is less than other
      */
-    virtual bool operator<(ReadOnly<E>) = 0;
+    virtual bool operator<(ReadOnly<E>) const = 0;
 
     /**
      * checks if object is greater than another (MUST OVERRIDE)
      * @param e object to check against
      * @returns true if object is greater than other
      */
-    virtual bool operator>(ReadOnly<E>) = 0;
+    virtual bool operator>(ReadOnly<E>) const = 0;
 
     /**
      * checks if object is less than or equal to another
      * @param e object to check against
      * @returns true if object is less than or equal to other
      */
-    virtual bool operator<=(ReadOnly<E> e) { return *this < e || *this == e; }
+    virtual bool operator<=(ReadOnly<E> e) const { return *this < e || *this == e; }
 
     /**
      * checks if object is greater than or equal to another
      * @param e object to check against
      * @returns true if object is greater than or equal to other
      */
-    virtual bool operator>=(ReadOnly<E> e) { return *this > e || *this == e; }
+    virtual bool operator>=(ReadOnly<E> e) const { return *this > e || *this == e; }
 };
 
 /**
- * Enforces converting derived class to bo0lean
+ * Enforces converting derived class to boolean
  */
 template <class E>
 struct Boolean
@@ -68,7 +68,7 @@ struct Boolean
      * Makes object a boolean during checks
      * @returns boolean representation of object
      */
-    virtual explicit operator bool() = 0;
+    virtual explicit operator bool() const = 0;
 };
 
 #endif
