@@ -28,7 +28,13 @@ sudo apt install make
 Run the main file by using ``make run``. You can also set c++ version
 
 - ``make run``: defaults to c++17
-- ``make run std=$CPP_VERSION``: runs at user-specified version
+- ``make run std=$CPP_VERSION``: runs at ``$CPP_VERSION``
+
+```bash
+$ make run std=17 # runs at c++ 17
+$ make run std=14 # runs at c++ 14
+$ make run std=11 # runs at c++ 11
+```
 
 #### Your console should look something like this
 
