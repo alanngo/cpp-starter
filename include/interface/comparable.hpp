@@ -11,6 +11,7 @@ struct Equals
     /**
      * checks if object is equal to another (MUST OVERRIDE)
      * @param e object to check against
+     * @warning MUST OVERRIDE
      * @returns true if both classes are equal
      */
     virtual bool operator==(ReadOnly<E>) const = 0;
@@ -30,15 +31,17 @@ template <class E>
 struct CompareTo : public Equals<E>
 {
     /**
-     * checks if object is less than another (MUST OVERRIDE)
+     * checks if object is less than another
      * @param e object to check against
+     * @warning MUST OVERRIDE
      * @returns true if object is less than other
      */
     virtual bool operator<(ReadOnly<E>) const = 0;
 
     /**
-     * checks if object is greater than another (MUST OVERRIDE)
+     * checks if object is greater than another
      * @param e object to check against
+     * @warning MUST OVERRIDE
      * @returns true if object is greater than other
      */
     virtual bool operator>(ReadOnly<E>) const = 0;

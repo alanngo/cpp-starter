@@ -20,7 +20,7 @@ public:
             return "";
         return table[carbon - 1] + "ane";
     }
-    friend ostream &operator<<(Ref<ostream> o, ReadOnly<Alkane> a)
+    friend ostream &operator<<(Output o, ReadOnly<Alkane> a)
     {
         return o << "C" << (a.carbon > 1 ? to_string(a.carbon) : "") << "H" << a.hydrogen;
     }

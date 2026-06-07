@@ -60,4 +60,15 @@ using RuntimeError = ReadOnly<runtime_error>;
 
 using flag = ReadOnly<bool>;
 
+// io
+#include <iostream>
+using std::istream;
+using std::ostream;
+
+/** input operator overloading */
+using Input = Ref<istream>;
+
+/** output operator overloading */
+using Output = Ref<ostream>;
+
 #endif

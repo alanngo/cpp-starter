@@ -29,7 +29,7 @@ public:
     double comp(ReadOnly<Vector> v) { return (*this) * v / magnitude(); }
     Vector proj(ReadOnly<Vector> v) { return unitVector() * comp(v); }
 
-    friend ostream &operator<<(Ref<ostream> o, ReadOnly<Vector> v) { return o << "(" << v.x << ", " << v.y << ", " << v.z << ")"; }
+    friend ostream &operator<<(Output o, ReadOnly<Vector> v) { return o << "(" << v.x << ", " << v.y << ", " << v.z << ")"; }
 
 private:
     const double x;
