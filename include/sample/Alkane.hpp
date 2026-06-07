@@ -5,20 +5,16 @@
 #include "../constants/types.hpp"
 #include "../interface/comparable.hpp"
 
+using std::ostream;
 using std::string;
 using std::to_string;
-using std::ostream;
 class Alkane : public Equals<Alkane>
 {
 public:
     Alkane(ReadOnly<int> c) : carbon(c > 1 ? c : 1), hydrogen(2 * (c + 1)) {}
     string getName() const
     {
-        string table[10] = {"meth", "eth", "prop", "but",
-                            "pent", "hex", "hept", "oct", "non", "dec"};
-        if (carbon > 10)
-            return "";
-        return table[carbon - 1] + "ane";
+        return carbon > 10 ? prefix[carbon - 1] + "ane" : "";
     }
     friend ostream &operator<<(Output o, ReadOnly<Alkane> a)
     {
@@ -30,5 +26,7 @@ public:
 private:
     const int carbon;
     const int hydrogen;
+    string prefix[10] = {"meth", "eth", "prop", "but",
+                        "pent", "hex", "hept", "oct", "non", "dec"};
 };
 #endif // ALKANE_HPP
