@@ -9,7 +9,7 @@ all:
 	make run
 run: 
 	make compile 
-	./a.out
+	./a.out $(ARGS)
 	make clean
 
 #helpers
